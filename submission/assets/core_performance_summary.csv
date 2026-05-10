@@ -1,0 +1,10 @@
+﻿indicator,value,interpretation
+2025 holdout R2,0.4781,같은 연도 구조에서는 일정한 설명력 확보
+Leave-One-Event-Out R2,0.1148,새 호우 이벤트 일반화 성능은 보수적으로 해석
+High-risk 20% delayed rate,16.3%,우선 대응 후보군의 실제 지연 위험
+Low-risk 20% delayed rate,0.5%,저위험군 분리 가능성
+Low D+1~D+3 recovery group delayed rate,16.0%,초기 회복률이 회복지연 조기 신호임
+High-risk vs low-risk recovery days,1.83 vs 1.06 days,상위 위험군의 실제 회복일수 차이
+Precision@Top20%,16.3%,위험 상위 20% 중 실제 지연 동 비율
+Recall@Top20%,82.2%,전체 지연 동 중 상위 20%가 포착한 비율
+Lift@Top20%,4.07x,전체 평균 delayed rate 대비 위험 농축도

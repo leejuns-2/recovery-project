@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(~/anaconda3/envs/recovery/python.exe -m pip install geopandas pyarrow)",
-      "Bash(~/anaconda3/envs/recovery/python.exe -c \"import xgboost, geopandas, shap, lifelines, folium, optuna, statsmodels; print\\('전부 OK'\\)\")",
-      "Bash('~/anaconda3/envs/recovery/python.exe' -c ' *)"
-    ]
-  }
-}

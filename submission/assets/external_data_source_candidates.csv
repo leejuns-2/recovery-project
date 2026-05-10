@@ -1,0 +1,6 @@
+priority,data_name,source,public_candidate,join_level,metric_column,status,limitation
+1,침수/도로/배수 민원,응답소/120다산콜 또는 서울시 스마트 불편신고,서울시 위치별 불편신고건수 정보 OA-12053,event_id+adm_cd,complaint_count_d0_d7,needs_data,원자료 공개 제한 가능; 월별 통계는 직접 D0-D7 검증 불가
+2,현장점검 건수,자치구/재난부서 현장점검대장,,event_id+adm_cd,field_check_count_d0_d7,needs_data,부서 내부자료 가능성이 높아 정보공개 또는 협조 필요
+3,수해 폐기물 수거량,자치구 청소행정/폐기물 부서,,event_id+gu_nm or event_id+adm_cd,waste_ton_d0_d7,needs_data,자치구 단위만 확보될 가능성
+4,피해 신고 건수,재난안전부서 피해신고/복구대장,,event_id+gu_nm or event_id+adm_cd,damage_report_count_d0_d7,needs_data,비공개/개인정보 이슈 가능
+5,분야별 불편신고,서울시 스마트 불편신고 분야별 신고 현황 OA-12051,서울 열린데이터광장,month+category,complaint_count_d0_d7,public_proxy,월별/분야별 통계이면 이벤트별 직접 검증은 어려움

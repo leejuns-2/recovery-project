@@ -1,6 +1,6 @@
-# Large data files (>100MB, excluded from GitHub)
-data/raw/living_pop/*.csv
-data/raw/spatial/*.shp
+# Local/editor state
+.vscode/
+.claude/settings.local.json
 
 # Python
 __pycache__/
@@ -12,6 +12,27 @@ venv/
 
 # Jupyter
 .ipynb_checkpoints/
+notebooks/
+
+# Raw and generated data
+data/raw/
+data/processed/
+data/interim/
+
+# Generated artifacts
+outputs/
+models/
+submission/final_supplement_assets/
+submission/docs/10_hwp_form_filled_draft.*
+submission/docs/11_hwp_form_concise_draft.*
+
+# Large document backups / final local exports
+*.docx
+~$*.docx
+
+# Local working notes / assistant files
+progress.md
+CLAUDE.md
 
 # OS
 .DS_Store

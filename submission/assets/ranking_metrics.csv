@@ -1,0 +1,4 @@
+﻿top_pct,global_precision,global_recall,global_lift,macro_precision,macro_recall,macro_lift,overall_delayed_rate,n_events_no_delayed
+0.1,0.2526,0.6377,6.3172,0.2526,0.4234,4.1941,0.04,13
+0.2,0.1628,0.8219,4.0711,0.1628,0.7063,3.4985,0.04,13
+0.3,0.1188,0.8927,2.9711,0.1188,0.7452,2.4801,0.04,13
