@@ -1,27 +1,20 @@
 path,description,front_asset
-submission/assets/core_performance_summary.csv,핵심 성능 요약,Y
-submission/assets/top20_lift_report.png,Top20 랭킹 성능 그림,Y
+submission/assets/core_performance_summary.csv,주요 성능 지표,Y
 submission/assets/event_priority_table.csv,이벤트별 복구자원 우선순위표,Y
 submission/assets/playbook_table.csv,유형별 권장 조치표,Y
-submission/assets/case_study_report.html,대표 호우 사례 보고서,Y
-submission/assets/capacity_scenario_chart.png,제한자원 시나리오 그림,Y
-submission/assets/flood_trace_overlap_report.png,침수흔적과 회복지연 위험 비교 그림,Y
-submission/assets/shap_beeswarm.png,SHAP 변수 중요도 그림,Y
-submission/assets/shap_waterfall_example.png,대표 행정동 SHAP waterfall 예시,Y
+submission/assets/case_study_report.html,대표 호우 사례 HTML,Y
 submission/assets/capacity_scenario_results.csv,제한자원 시나리오 수치,N
 submission/assets/ranking_metrics.csv,Precision/Recall/Lift@K,N
 submission/assets/target_sensitivity_summary.csv,타깃 기준 민감도,N
 submission/assets/model_timing_comparison.csv,duration_days 제외/포함 모델 비교,N
 submission/assets/flood_trace_overlap_interpretation.csv,침수흔적 overlap 해석,N
-submission/assets/external_validation_summary.csv,외부 실적 검증 상태 및 템플릿 안내,N
+submission/assets/external_validation_summary.csv,외부 실적 검증 상태,N
 submission/assets/case_story_event_metrics.csv,대표 호우 사례 성능 지표,N
 submission/assets/case_story_top10.csv,대표 호우 사례 Top10 우선순위,N
-submission/docs/01_competition_positioning.md,공모전 적합성과 경쟁력 분석,N
-submission/docs/02_result_summary.md,객관적 결과 요약,N
-submission/docs/03_limitations_and_defense.md,한계와 방어 논리,N
-submission/docs/05_external_validation_plan.md,민원·폐기물·현장점검 외부 검증 계획,N
-submission/docs/06_case_story.md,대표 호우 사례 발표 스토리,N
-submission/docs/07_external_data_sources.md,외부 검증 후보 데이터 출처와 결합 전략,N
 submission/assets/external_data_source_candidates.csv,외부 검증 후보 데이터 목록,N
-submission/docs/08_analysis_report.md,분석 보고서 초안,N
-submission/docs/09_user_action_checklist.md,사용자 실행 체크리스트와 외부자료 요청 문안,N
+submission/docs/02_result_summary.md,결과 요약,N
+submission/docs/03_limitations.md,기술적 한계,N
+submission/docs/04_repository_map.md,공개 저장소 구조,N
+submission/docs/05_external_validation_plan.md,외부 행정수요 검증 계획,N
+submission/docs/06_case_study.md,대표 호우 사례,N
+submission/docs/07_external_data_sources.md,외부 검증 후보 데이터 출처,N

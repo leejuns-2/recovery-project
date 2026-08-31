@@ -33,10 +33,4 @@ python scripts\external_validation.py
 
 If no usable metric columns are filled, the script writes a `not_available` status file instead of pretending validation was completed.
 
-## Request Script
-
-외부 자료 요청 문안은 아래 문서에 정리했습니다.
-
-```text
-submission/docs/09_user_action_checklist.md
-```
+외부 데이터의 제공기관, 기간, 집계 단위, 이용 조건은 `source_note`에 기록해야 합니다. 개인정보나 민원 원문은 이 저장소에 커밋하지 않습니다.
