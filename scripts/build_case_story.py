@@ -52,7 +52,7 @@ def main() -> None:
     departments = ", ".join(top10["department"].dropna().astype(str).unique()[:4])
     row0 = top10.iloc[0]
 
-    md = f"""# Case Story: Event {case_event}
+    md = f"""# Case Study: Event {case_event}
 
 ## Situation
 
@@ -100,15 +100,15 @@ Historical validation for risk-based Top10:
 | Benefit index per resource | {cap10['benefit_index_per_resource']:.1%} |
 | Lift | {cap10['mean_lift_k']:.2f}x |
 
-## Presentation Sentence
+## Interpretation
 
-이 사례에서 모델은 위험 상위 동을 지도 표시로 끝내지 않고, 담당부서·조치시점·자원유형까지 연결한 운영 우선순위표로 변환했다. Top20 선별은 실제 delayed 동의 {event_lift['recall_top20']:.1%}를 포착했고, 전체 평균 대비 {event_lift['lift_top20']:.2f}배 높은 delayed 농축도를 보였다.
+이 이벤트에서 위험 상위 동은 담당부서·조치시점·자원유형과 함께 우선순위표로 정리됩니다. Top20 선별은 관측된 delayed 동의 {event_lift['recall_top20']:.1%}를 포착했고, 이벤트 전체 평균 대비 {event_lift['lift_top20']:.2f}배 높은 delayed 농축도를 보였습니다.
 
 ## Caution
 
 This is not a causal estimate of policy effect. It is an operational ranking and resource allocation sensitivity analysis based on observed post-rainfall recovery outcomes.
 """
-    (DOCS / "06_case_story.md").write_text(md, encoding="utf-8")
+    (DOCS / "06_case_study.md").write_text(md, encoding="utf-8")
 
 
 if __name__ == "__main__":
