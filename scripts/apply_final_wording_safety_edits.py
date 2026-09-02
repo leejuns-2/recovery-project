@@ -79,7 +79,7 @@ def replace_text_in_paragraphs(root: ET.Element) -> int:
 
 def insert_internal_validation_paragraph(root: ET.Element) -> bool:
     target = (
-        "또한 duration_days 제외 시에도 Top20 Lift가 3.53x로 유지되어, 결과가 이벤트 지속일 단일 피처에만 "
+        "또한 duration_days 제외 시에도 macro Lift@20%가 3.53x로 유지되어, 결과가 이벤트 지속일 단일 피처에만 "
         "의존하지 않음을 보조 확인하였다. 다만 LOEO R2가 낮기 때문에 본 모델은 회복률 절대값을 확정 예측하는 "
         "도구가 아니라, 사후 점검 후보군을 좁히는 랭킹형 의사결정 보조도구로 한정해 활용한다."
     )

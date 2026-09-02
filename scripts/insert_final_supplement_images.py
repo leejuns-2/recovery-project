@@ -17,7 +17,7 @@ FIGURES = [
         "file": FIG_DIR / "baseline_rainfall_flood_comparison.png",
         "title": "그림 1. 기존 모델과 단일 기준 baseline 비교",
         "desc": (
-            "기존 회복지연 모델은 Top20% 기준 Recall 82.2%, Lift 4.07배로 "
+            "기존 회복지연 모델은 Top-20% 기준 Recall 82.2%, Lift 4.07배로 "
             "Rainfall-only와 Flood-only 단일 기준보다 실제 회복지연 동을 훨씬 효과적으로 포착하였다."
         ),
         "width_in": 6.2,
@@ -27,7 +27,7 @@ FIGURES = [
         "file": FIG_DIR / "random_topk_validation.png",
         "title": "그림 2. Random Top-K 반복검증 결과",
         "desc": (
-            "무작위 Top20% 반복선택의 평균 Recall은 약 20.2%, Lift는 약 1.00배였으나, "
+            "무작위 Top-20% 반복선택의 평균 Recall은 약 20.2%, Lift는 약 1.00배였으나, "
             "기존 모델은 Recall 82.2%, Lift 4.07배로 무작위 분포를 크게 벗어났다."
         ),
         "width_in": 6.2,
@@ -42,7 +42,7 @@ FIGURES = [
     },
     {
         "file": FIG_DIR / "map_recovery_delay_risk_top20.png",
-        "title": "그림 4. 회복지연 위험 Top20% 행정동",
+        "title": "그림 4. 회복지연 위험 Top-20% 행정동",
         "desc": (
             "모델이 산출한 회복지연 위험 상위 행정동은 침수흔적 Top25%와 8개 동만 겹쳐, "
             "단순 침수면적이 아닌 생활인구 노출·고령층·서비스 및 인프라 병목 등 "

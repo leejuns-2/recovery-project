@@ -129,11 +129,11 @@ def build_target_sensitivity() -> None:
                 "recovery_threshold": f"{int(threshold * 100)}%",
                 "delayed_threshold_days": delayed_days,
                 "delayed_rate": round(overall, 4),
-                "top20_delayed_rate": round(top_rate, 4),
-                "bottom20_delayed_rate": round(bottom_rate, 4),
+                "top_20pct_delayed_rate": round(top_rate, 4),
+                "bottom_20pct_delayed_rate": round(bottom_rate, 4),
                 "lift": round(top_rate / overall, 4) if overall else pd.NA,
-                "top20_mean_recovery_days": round(top["recovery_days_alt"].mean(), 4),
-                "bottom20_mean_recovery_days": round(bottom["recovery_days_alt"].mean(), 4),
+                "top_20pct_mean_recovery_days": round(top["recovery_days_alt"].mean(), 4),
+                "bottom_20pct_mean_recovery_days": round(bottom["recovery_days_alt"].mean(), 4),
             }
         )
 
@@ -186,12 +186,12 @@ def build_ranking_support_tables() -> None:
                     {
                         "event_id": event_id,
                         "n_districts": len(part),
-                        "k_top20": k,
+                        "k_at_20pct": k,
                         "event_delayed_rate": round(event_rate, 4),
-                        "top20_delayed_rate": round(precision, 4),
-                        "bottom20_delayed_rate": round(bottom["delayed"].mean(), 4),
-                        "recall_top20": round(recall, 4) if pd.notna(recall) else pd.NA,
-                        "lift_top20": round(lift, 4) if pd.notna(lift) else pd.NA,
+                        "top_20pct_delayed_rate": round(precision, 4),
+                        "bottom_20pct_delayed_rate": round(bottom["delayed"].mean(), 4),
+                        "recall_at_20pct": round(recall, 4) if pd.notna(recall) else pd.NA,
+                        "lift_at_20pct": round(lift, 4) if pd.notna(lift) else pd.NA,
                         "n_delayed": n_delayed,
                     }
                 )
@@ -294,17 +294,17 @@ def update_core_performance() -> None:
     additions = pd.DataFrame(
         [
             {
-                "indicator": "Precision@Top20%",
+                "indicator": "Precision@20%",
                 "value": f"{top20['global_precision'] * 100:.1f}%",
                 "interpretation": "위험 상위 20% 중 실제 지연 동 비율",
             },
             {
-                "indicator": "Recall@Top20%",
+                "indicator": "Recall@20%",
                 "value": f"{top20['global_recall'] * 100:.1f}%",
                 "interpretation": "전체 지연 동 중 상위 20%가 포착한 비율",
             },
             {
-                "indicator": "Lift@Top20%",
+                "indicator": "Lift@20%",
                 "value": f"{top20['global_lift']:.2f}x",
                 "interpretation": "전체 평균 delayed rate 대비 위험 농축도",
             },

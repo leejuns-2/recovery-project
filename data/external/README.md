@@ -1,6 +1,6 @@
 # External Validation Data Guide
 
-민원·폐기물·현장점검·피해신고 실적 데이터가 확보되면 본 폴더에 넣습니다. 현재 프로젝트의 외부 검증 스크립트는 `external_validation_template.csv` 형식을 읽어 Top20/Bottom20 외부 실적 비교표를 생성합니다.
+민원·폐기물·현장점검·피해신고 실적 데이터가 확보되면 본 폴더에 넣습니다. 현재 프로젝트의 외부 검증 스크립트는 `external_validation_template.csv` 형식을 읽어 위험 Top-20%/Bottom-20% 외부 실적 비교표를 생성합니다.
 
 ## Required Join Keys
 

@@ -107,8 +107,8 @@ selected_capacity = capacity_row(capacity, support_k)
 selected_plan = event_priority.head(min(support_k, len(event_priority))).copy()
 
 top_metrics = st.columns(5)
-top_metrics[0].metric("Recall@Top20", metric_value(perf, "Recall@Top20%"))
-top_metrics[1].metric("Lift@Top20", metric_value(perf, "Lift@Top20%"))
+top_metrics[0].metric("Recall@20%", metric_value(perf, "Recall@20%"))
+top_metrics[1].metric("Lift@20%", metric_value(perf, "Lift@20%"))
 top_metrics[2].metric("High-risk delayed", metric_value(perf, "High-risk 20% delayed rate"))
 top_metrics[3].metric("Capacity lift", f"{selected_capacity['mean_lift_k']:.2f}x")
 top_metrics[4].metric("Delayed capture", pct(selected_capacity["delayed_capture_rate"]))
@@ -192,9 +192,9 @@ with tab_case:
     st.markdown(
         f"**Event {int(case['event_id'])}** | "
         f"delayed {int(case['n_delayed'])}개 동 | "
-        f"Top20 delayed {pct(case['top20_delayed_rate'])} | "
-        f"Recall@Top20 {pct(case['recall_top20'])} | "
-        f"Lift {case['lift_top20']:.2f}x"
+        f"Top-20% delayed {pct(case['top_20pct_delayed_rate'])} | "
+        f"Recall@20% {pct(case['recall_at_20pct'])} | "
+        f"Lift@20% {case['lift_at_20pct']:.2f}x"
     )
     st.dataframe(
         case_top10[

@@ -127,7 +127,7 @@ def build_baseline_comparison(df: pd.DataFrame) -> pd.DataFrame:
     colors = ["#2458a6", "#d68a2e", "#7a7f87"]
 
     axes[0].bar(plot_df.index, plot_df["recall"], color=colors)
-    axes[0].set_title("Recall@Top20%")
+    axes[0].set_title("Recall@20%")
     axes[0].set_ylim(0, max(0.9, plot_df["recall"].max() * 1.15))
     axes[0].set_ylabel("전체 지연 동 포착률")
     axes[0].tick_params(axis="x", rotation=18)
@@ -135,7 +135,7 @@ def build_baseline_comparison(df: pd.DataFrame) -> pd.DataFrame:
         axes[0].text(i, value + 0.02, f"{value * 100:.1f}%", ha="center", fontsize=10)
 
     axes[1].bar(plot_df.index, plot_df["lift"], color=colors)
-    axes[1].set_title("Lift@Top20%")
+    axes[1].set_title("Lift@20%")
     axes[1].set_ylim(0, max(4.6, plot_df["lift"].max() * 1.15))
     axes[1].set_ylabel("전체 평균 대비 위험 농축도")
     axes[1].tick_params(axis="x", rotation=18)
@@ -238,8 +238,8 @@ def build_random_and_bootstrap_validation(df: pd.DataFrame) -> None:
 
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.6))
     for ax, metric, label in [
-        (axes[0], "recall", "Recall@Top20%"),
-        (axes[1], "lift", "Lift@Top20%"),
+        (axes[0], "recall", "Recall@20%"),
+        (axes[1], "lift", "Lift@20%"),
     ]:
         ax.hist(random_df[metric], bins=45, color="#b8c1cc", edgecolor="white")
         ax.axvline(observed[metric], color="#2458a6", linewidth=2.5, label="기존 모델")
@@ -303,7 +303,7 @@ def build_maps(df: pd.DataFrame) -> None:
         ),
         (
             "recovery_delay_risk_top20",
-            "회복지연 위험 Top20%",
+            "회복지연 위험 Top-20%",
             "LOEO 평균 위험점수 기준 우선 대응 행정동",
             "#2458a6",
             FIGURES / "map_recovery_delay_risk_top20.png",
@@ -367,7 +367,7 @@ def build_readme() -> None:
 - figures/baseline_rainfall_flood_comparison.png: 기존 모델과 Rainfall-only / Flood-only baseline의 Recall, Lift 비교
 - figures/random_topk_validation.png: Random Top-K 10,000회 반복검증 분포와 기존 모델 위치
 - figures/map_flood_trace_top25.png: 침수흔적 면적 Top25% 지도
-- figures/map_recovery_delay_risk_top20.png: 회복지연 위험 Top20% 지도
+- figures/map_recovery_delay_risk_top20.png: 회복지연 위험 Top-20% 지도
 
 ## 표/근거 파일
 - tables/baseline_rainfall_flood_comparison.csv
@@ -377,7 +377,7 @@ def build_readme() -> None:
 - tables/map_top_group_membership.csv
 
 ## 산출 기준
-- Top-K 비교는 각 호우 이벤트 안에서 동일한 Top20% 개수를 선택했다.
+- 비율 기반 비교는 각 호우 이벤트 안에서 동일한 Top-20% 비율을 선택했다. 고정 K 시나리오와 혼동하지 않는다.
 - Rainfall-only는 행정동별 local_daily_rain을 중심으로 local_max_12h_rain, local_max_3h_rain을 tie-break에 사용했다.
 - Flood-only는 과거 침수흔적 면적 비율(flood_area_ratio)만 사용했다.
 - Bootstrap CI는 이벤트 단위 재표본추출로 계산했다.

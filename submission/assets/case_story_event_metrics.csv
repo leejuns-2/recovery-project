@@ -1,4 +1,4 @@
-event_id,event_date,n_districts,k_top20,event_delayed_rate,top20_delayed_rate,bottom20_delayed_rate,recall_top20,lift_top20,n_delayed
-6,2023-07-13,426,86,0.1150,0.4884,0.0000,0.8571,4.2458,49
-17,2024-07-18,426,86,0.1080,0.4884,0.0000,0.9130,4.5228,46
-34,2025-09-04,426,86,0.0869,0.4186,0.0000,0.9730,4.8196,37
+﻿event_id,event_date,n_districts,k_at_20pct,event_delayed_rate,top_20pct_delayed_rate,bottom_20pct_delayed_rate,recall_at_20pct,lift_at_20pct,n_delayed
+6,2023-07-13,426,86,0.115,0.4884,0.0,0.8571,4.2458,49
+17,2024-07-18,426,86,0.108,0.4884,0.0,0.913,4.5228,46
+34,2025-09-04,426,86,0.0869,0.4186,0.0,0.973,4.8196,37

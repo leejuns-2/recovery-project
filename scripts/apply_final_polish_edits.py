@@ -35,7 +35,7 @@ def set_paragraph_text(paragraph: ET.Element, text: str) -> None:
 def replace_text(root: ET.Element) -> int:
     replacements = {
         "기존 회복지연 모델은 Top20% 기준 Recall 82.2%, Lift 4.07배로 Rainfall-only와 Flood-only 단일 기준보다 실제 회복지연 동을 훨씬 효과적으로 포착하였다.": (
-            "본 회복지연 모델은 Top20% 기준 Recall 82.2%, Lift 4.07배로 Rainfall-only와 Flood-only 단일 기준보다 실제 회복지연 동을 더 효과적으로 포착하였다."
+            "본 회복지연 모델은 Top-20% 기준 Recall 82.2%, Lift 4.07배로 Rainfall-only와 Flood-only 단일 기준보다 실제 회복지연 동을 더 효과적으로 포착하였다."
         ),
         "2. 정밀 B/C 분석": "2. 가정 기반 B/C 시나리오",
         "2025 holdout R2": "2025 holdout R²",
