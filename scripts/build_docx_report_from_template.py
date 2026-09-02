@@ -172,8 +172,8 @@ def main() -> None:
         rows = table_rows(cases)
         set_cell(rows[0][0], "이벤트")
         set_cell(rows[0][1], "실제 지연 동")
-        set_cell(rows[0][2], "Recall@Top20")
-        set_cell(rows[0][3], "Lift@Top20")
+        set_cell(rows[0][2], "Recall@20%")
+        set_cell(rows[0][3], "Lift@20%")
 
         # Table 11: shorten B/C assumptions.
         bc = tables[10]

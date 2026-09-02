@@ -16,9 +16,9 @@ def pick_case_event(lift: pd.DataFrame) -> int:
     if candidates.empty:
         candidates = lift[lift["n_delayed"].gt(0)].copy()
     candidates["score"] = (
-        candidates["recall_top20"].fillna(0) * 0.5
-        + candidates["lift_top20"].fillna(0).rank(pct=True) * 0.3
-        + candidates["top20_delayed_rate"].fillna(0).rank(pct=True) * 0.2
+        candidates["recall_at_20pct"].fillna(0) * 0.5
+        + candidates["lift_at_20pct"].fillna(0).rank(pct=True) * 0.3
+        + candidates["top_20pct_delayed_rate"].fillna(0).rank(pct=True) * 0.2
     )
     return int(candidates.sort_values("score", ascending=False).iloc[0]["event_id"])
 
@@ -77,10 +77,10 @@ Top10 recovery types:
 | Metric | Value |
 |---|---:|
 | Event delayed rate | {event_lift['event_delayed_rate']:.1%} |
-| Top20 delayed rate | {event_lift['top20_delayed_rate']:.1%} |
-| Bottom20 delayed rate | {event_lift['bottom20_delayed_rate']:.1%} |
-| Recall@Top20 | {event_lift['recall_top20']:.1%} |
-| Lift@Top20 | {event_lift['lift_top20']:.2f}x |
+| Top-20% delayed rate | {event_lift['top_20pct_delayed_rate']:.1%} |
+| Bottom-20% delayed rate | {event_lift['bottom_20pct_delayed_rate']:.1%} |
+| Recall@20% | {event_lift['recall_at_20pct']:.1%} |
+| Lift@20% | {event_lift['lift_at_20pct']:.2f}x |
 
 ## Operational Action
 
@@ -102,7 +102,7 @@ Historical validation for risk-based Top10:
 
 ## Interpretation
 
-이 이벤트에서 위험 상위 동은 담당부서·조치시점·자원유형과 함께 우선순위표로 정리됩니다. Top20 선별은 관측된 delayed 동의 {event_lift['recall_top20']:.1%}를 포착했고, 이벤트 전체 평균 대비 {event_lift['lift_top20']:.2f}배 높은 delayed 농축도를 보였습니다.
+이 이벤트에서 위험 상위 동은 담당부서·조치시점·자원유형과 함께 우선순위표로 정리됩니다. Top-20% 선별은 관측된 delayed 동의 {event_lift['recall_at_20pct']:.1%}를 포착했고, 이벤트 전체 평균 대비 {event_lift['lift_at_20pct']:.2f}배 높은 delayed 농축도를 보였습니다.
 
 ## Caution
 

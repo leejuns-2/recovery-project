@@ -174,9 +174,9 @@ def build_validation() -> None:
                     "message": (
                         "민원·폐기물·현장점검 외부 실적 데이터가 아직 투입되지 않았습니다. "
                         "data/external/external_validation_template.csv 형식으로 데이터를 넣으면 "
-                        "Top20/Bottom20 외부 검증표가 생성됩니다."
+                        "위험 Top-20%/Bottom-20% 외부 검증표가 생성됩니다."
                     ),
-                    "template_path": str(TEMPLATE),
+                    "template_path": "data/external/external_validation_template.csv",
                 }
             ]
         )

@@ -16,19 +16,19 @@
 
 ## Performance Message
 
-이 문제는 회복률 절대값을 정밀하게 맞히는 회귀 문제가 아니라, 제한된 복구자원을 우선 투입할 후보 동을 고르는 랭킹 문제입니다. 따라서 R2는 보조 지표이고, 핵심 성능은 Precision/Recall/Lift@K입니다.
+이 문제는 회복률 절대값을 정밀하게 맞히는 회귀 문제가 아니라, 제한된 복구자원을 우선 투입할 후보 동을 고르는 랭킹 문제입니다. 따라서 R²는 보조 지표이고, 핵심 성능은 Precision/Recall/Lift입니다. 비율 기준 Top-20%와 fixed capacity K=20은 분리해 해석합니다.
 
 ## Main Metrics
 
 | Metric | Value | Meaning |
 |---|---:|---|
-| Recall@Top20% | 82.2% | 전체 delayed 동 중 상위 20%가 포착한 비율 |
-| Lift@Top20% | 4.07x | 전체 평균 delayed rate 대비 위험 농축도 |
-| Precision@Top20% | 16.3% | 위험 상위 20% 중 실제 delayed 비율 |
+| Recall@20% | 82.2% | 전체 delayed 동 중 상위 20%가 포착한 비율 |
+| Lift@20% | 4.07x | 전체 평균 delayed rate 대비 위험 농축도 |
+| Precision@20% | 16.3% | 위험 상위 20% 중 실제 delayed 비율 |
 | High vs Low recovery days | 1.83 vs 1.06 days | 위험군 간 실제 회복일수 차이 |
-| Capacity Top20 lift | 5.55x | 제한자원 배치에서 risk-based Top20의 상대 효율 |
-| LOEO R2 | 0.1148 | 새 이벤트에서 절대값 예측 일반화는 제한적 |
-| 2025 holdout R2 | 0.4781 | 특정 연도 holdout에서는 설명력 있음 |
+| Fixed-capacity K=20 lift | 5.55x | 제한자원 배치에서 정확히 20개 동을 고른 평균 lift |
+| LOEO R² | 0.1148 | 새 이벤트에서 절대값 예측 일반화는 제한적 |
+| 2025 holdout R² | 0.4781 | 특정 연도 holdout 결과 |
 
 ## Capacity Scenario
 
@@ -60,13 +60,13 @@ Random baseline은 500회 반복 평균입니다.
 
 대표 사례는 단일 이벤트가 아니라 3개 연도 주요 호우로 제시합니다. 이는 특정 이벤트 cherry-picking 우려를 줄이고, 운영 우선순위표가 반복적으로 작동한다는 점을 보여주기 위한 구성입니다.
 
-| Event | Actual delayed districts | Top20 delayed rate | Recall@Top20 | Lift@Top20 |
+| Event | Actual delayed districts | Top-20% delayed rate | Recall@20% | Lift@20% |
 |---|---:|---:|---:|---:|
 | 2023-07-13 (`event_id=6`) | 49 | 48.8% | 85.7% | 4.25x |
 | 2024-07-18 (`event_id=17`) | 46 | 48.8% | 91.3% | 4.52x |
 | 2025-09-04 (`event_id=34`) | 37 | 41.9% | 97.3% | 4.82x |
 
-세 사례에서 모두 Top20 Lift가 4배 이상으로 나타났습니다. 모델은 위험 상위 동을 단순 지도 표시로 끝내지 않고, 담당부서·조치시점·자원유형까지 연결한 운영 우선순위표로 변환합니다.
+세 사례에서 모두 Top-20% Lift가 4배 이상으로 나타났습니다. 모델은 위험 상위 동을 단순 지도 표시로 끝내지 않고, 담당부서·조치시점·자원유형까지 연결한 운영 우선순위표로 변환합니다.
 
 ## Operational Outputs
 
@@ -78,6 +78,6 @@ Random baseline은 500회 반복 평균입니다.
 
 ## Interpretation
 
-LOEO R2=0.1148은 새로운 호우 이벤트에서 회복률 절대값을 정밀 예측하는 데 한계가 있음을 보여줍니다. 그러나 본 연구의 운영 목적은 제한된 복구자원을 우선 투입할 후보 동을 선별하는 것이므로, 성능 평가는 Precision/Recall/Lift@K를 중심으로 수행했습니다. 그 결과 위험 상위 20% 동은 전체 delayed 동의 82.2%를 포착했고, 전체 평균 대비 4.07배 높은 delayed 농축도를 보였습니다.
+LOEO R²=0.1148은 새로운 호우 이벤트에서 회복률 절대값을 정밀 예측하는 데 한계가 있음을 보여줍니다. 그러나 본 연구의 운영 목적은 제한된 복구자원을 우선 투입할 후보 동을 선별하는 것이므로, 성능 평가는 Precision/Recall/Lift를 중심으로 수행했습니다. 그 결과 위험 상위 20% 동은 전체 delayed 동의 82.2%를 포착했고, 전체 평균 대비 4.07배 높은 delayed 농축도를 보였습니다.
 
 해석상 “위험 상위 동은 실제 행정수요가 높다”고 단정하지 않습니다. 더 안전한 표현은 “위험 상위 동은 생활활동 회복지연 가능성이 높아, 민원·점검·청소·복지 대응을 먼저 확인할 우선점검 후보로 활용할 수 있다”입니다.
